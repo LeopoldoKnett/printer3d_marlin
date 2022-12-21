@@ -88,6 +88,8 @@
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  // LK: Ramps 1.5 tem a mesma configuração da 1.4
+  // LK: EFB = (E)xtrutora, (F)AN da extrutora e (B)ed controlados pela placa 
 #endif
 
 /**
@@ -536,7 +538,7 @@
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  *
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 1 //LK: Sensor genérico esta a funcionar bem
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -544,7 +546,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 1
+#define TEMP_SENSOR_BED 1 //LK: Sensor genérico esta a funcionar bem
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 #define TEMP_SENSOR_COOLER 0
@@ -667,9 +669,10 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  22.20
-    #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
+    // LK: Valores obtidos a partir do App Repetier com comando: M303 E0 S190 C10
+    #define DEFAULT_Kp  35.27 // LK: Era:   22.20
+    #define DEFAULT_Ki   2.67 // LK: Era:    1.08
+    #define DEFAULT_Kd 116.30 // LK: Era:  114.00 
   #endif
 #endif
 
@@ -1169,6 +1172,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 500 }
+
 // LK: Valores calculados para a máquina
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 40, 40, 100, 47.61 }
 
